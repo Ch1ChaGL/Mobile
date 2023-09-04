@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">3</string>
+    <string name="textView1Text">textView1</string>
+    <string name="textView2Text">textView2</string>
+    <string name="Red_Green">Red-Green</string>
+    <string name="Yellow_Blue">Yellow-Blue</string>
+    <string name="Black_White">Black-White</string>
+    <string name="red">Red</string>
+    <string name="blue">Blue</string>
+    <string name="black">Black</string>
+</resources>
