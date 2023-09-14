@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">9</string>
+    <string name="preferences">settings</string>
+    <string name="stringKey1">stringKey1</string>
+    <string name="stringKey2">stringKey2</string>
+    <string name="intKey1">intKey1</string>
+</resources>
