@@ -1,4 +1,4 @@
-package com.example.a11;
+package com.example.a11.adapters;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -10,6 +10,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import androidx.core.content.ContextCompat;
+
+import com.example.a11.R;
 
 public class ColorsAdapter extends BaseAdapter {
 

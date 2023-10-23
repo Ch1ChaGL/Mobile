@@ -1,9 +1,8 @@
-package com.example.a11;
+package com.example.a11.activities;
 
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -12,7 +11,10 @@ import android.widget.ListView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class Second extends AppCompatActivity implements AdapterView.OnItemClickListener {
+import com.example.a11.R;
+import com.example.a11.adapters.ColorsAdapter;
+
+public class Second extends MyBaseActivity implements AdapterView.OnItemClickListener {
     ColorsAdapter adapter;
     private SharedPreferences preferences;
     @Override
