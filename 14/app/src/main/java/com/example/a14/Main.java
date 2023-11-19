@@ -18,6 +18,13 @@ public class Main extends AppCompatActivity {
 
         editText1 = (EditText) findViewById(R.id.et1);
         editText2 = (EditText) findViewById(R.id.et2);
+
+        // Получение данных из Intent, если они есть
+        Intent intent = getIntent();
+        if (intent != null) {
+            editText1.setText(intent.getStringExtra("editText1"));
+            editText2.setText(intent.getStringExtra("editText2"));
+        }
     }
 
     protected void onResume() {
@@ -33,6 +40,10 @@ public class Main extends AppCompatActivity {
 
     public void show (View view){
         Intent intent = new Intent(this, Second.class);
+
+        intent.putExtra("editText1", editText1.getText().toString());
+        intent.putExtra("editText2", editText2.getText().toString());
+
         startActivity(intent);
     }
 }

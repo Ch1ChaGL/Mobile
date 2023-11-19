@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Second extends AppCompatActivity {
     EditText editText1, editText2;
+    String et1, et2;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +28,26 @@ public class Second extends AppCompatActivity {
         startActivity(intent);
     }
 
+    protected void onResume() {
+        super.onResume();
+
+        // Получение данных из Intent, если они есть
+        Intent intent = getIntent();
+        if (intent != null) {
+            editText1.setText(intent.getStringExtra("editText1"));
+            editText2.setText(intent.getStringExtra("editText2"));
+
+            et1 = intent.getStringExtra("editText1");
+            et2 = intent.getStringExtra("editText2");
+        }
+    }
     public void cancel(View view) {
-        onBackPressed();
+
+        Intent intent = new Intent(this, Main.class);
+
+        intent.putExtra("editText1", et1);
+        intent.putExtra("editText2", et2);
+        startActivity(intent);
     }
 
 
