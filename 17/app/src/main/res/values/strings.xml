@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">17</string>
+    <string name="res1">Текст в первом editText</string>
+    <string name="res2">Текст во втором editText</string>
+</resources>
