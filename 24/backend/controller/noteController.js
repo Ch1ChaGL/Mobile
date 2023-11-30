@@ -3,6 +3,7 @@ const { Note } = require("../models/models");
 class NoteController {
   async addNote(req, res, next) {
     const { NoteTitle, NoteData, NoteTime } = req.body;
+
     const data = await Note.create(req.body);
     res.json(data);
   }
@@ -14,6 +15,7 @@ class NoteController {
   async getNoteById(req, res, next) {
     const { id } = req.params;
     const data = await Note.findByPk(id);
+
     res.json(data);
   }
 

@@ -11,7 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class Second extends AppCompatActivity implements TextWatcher {
-    MyApp application;
     EditText et1;
     Button ok;
     @Override
@@ -22,33 +21,21 @@ public class Second extends AppCompatActivity implements TextWatcher {
         ok = (Button)findViewById(R.id.ok);
         et1 = (EditText)findViewById(R.id.et);
         et1.addTextChangedListener(this);
-        application = (MyApp) getApplicationContext();
     }
 
 
     @Override
     protected void onResume() {
         super.onResume();
-        if(MyApp.CurrentActionCode == MyApp.EDIT_ACTION){
-            et1.setText(application.getNoteById(application.getNoteId()).get_note());
-        }
     }
 
     public void clickOk(View view) {
-        setResult(RESULT_OK);
-        if (MyApp.CurrentActionCode == MyApp.CREATE_ACTION){
-            application.add(new Note("Test",et1.getText().toString(), Note.getCurrentTime()));
-        }
-        if(MyApp.CurrentActionCode == MyApp.EDIT_ACTION){
-            application.set(application.getNoteId(), new Note("Test", et1.getText().toString(), Note.getCurrentTime()));
-        }
-        finish();
+
     }
 
 
     public void clickCancel(View view) {
-        setResult(RESULT_CANCELED);
-        finish();
+
     }
 
     @Override
