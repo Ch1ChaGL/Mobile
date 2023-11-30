@@ -8,7 +8,7 @@ class NoteController {
   }
 
   async getAllNote(req, res, next) {
-    const data = await Note.getAll();
+    const data = await Note.findAll();
     res.json(data);
   }
   async getNoteById(req, res, next) {
