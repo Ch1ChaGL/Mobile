@@ -52,6 +52,22 @@ public class Note implements Serializable {
     public String getNotePriority() {
         return NotePriority;
     }
+    public int getNotePriorityPosition(){
+        switch (NotePriority){
+            case "Low":
+                return 0;
+                break;
+            case "Medium":
+                return 1;
+                break;
+            case "High":
+                return 2;
+                break;
+            default:
+                return -1;
+            break;
+        }
+    }
 
     public void setNotePriority(String notePriority) {
         NotePriority = notePriority;
