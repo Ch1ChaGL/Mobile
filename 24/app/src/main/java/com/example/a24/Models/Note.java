@@ -3,12 +3,16 @@ package com.example.a24.Models;
 import java.io.Serializable;
 import java.sql.Time;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
 
 public class Note implements Serializable {
     private int NoteID;
     private String NoteTitle;
     private String NoteData;
-    private LocalDateTime NoteTime;
+
+    private OffsetDateTime NoteTime;
+    private OffsetDateTime createdAt;
+    private OffsetDateTime updatedAt;
 
     public int getNoteID() {
         return NoteID;
@@ -34,11 +38,11 @@ public class Note implements Serializable {
         NoteData = noteData;
     }
 
-    public LocalDateTime getNoteTime() {
+    public OffsetDateTime getNoteTime() {
         return NoteTime;
     }
 
-    public void setNoteTime(LocalDateTime noteTime) {
+    public void setNoteTime(OffsetDateTime noteTime) {
         NoteTime = noteTime;
     }
 }
