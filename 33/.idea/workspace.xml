@@ -4,7 +4,23 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3dd7277e-7581-44e4-811a-2d2b0110d614" name="Changes" comment="" />
+    <list default="true" id="3dd7277e-7581-44e4-811a-2d2b0110d614" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../24/app/src/main/java/com/example/a24/NoteAdapter/NoteAdapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../24/app/src/main/res/layout/item_note.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../21/app/src/main/java/com/example/a21/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../21/app/src/main/java/com/example/a21/MyView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../21/app/src/main/res/layout/main_act.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../24/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../24/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../24/app/src/main/java/com/example/a24/Models/Note.java" beforeDir="false" afterPath="$PROJECT_DIR$/../24/app/src/main/java/com/example/a24/Models/Note.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../24/app/src/main/res/layout/main_act.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../24/app/src/main/res/layout/main_act.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../24/backend/.env" beforeDir="false" afterPath="$PROJECT_DIR$/../24/backend/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/a33/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/a33/Model/Category.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/a33/Model/CategoryAPI.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/main_act.xml" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,15 +34,15 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "cidr.known.project.marker": "true",
-    "last_opened_file_path": "/Users/ch1cha_gl/Desktop/Mobile/33"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/ch1cha_gl/Desktop/Mobile/33&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

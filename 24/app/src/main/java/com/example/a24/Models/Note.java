@@ -11,6 +11,9 @@ public class Note implements Serializable {
     private String NoteData;
 
     private OffsetDateTime NoteTime;
+    private String NotePriority;
+
+    //standard postgres field
     private OffsetDateTime createdAt;
     private OffsetDateTime updatedAt;
 
@@ -44,5 +47,13 @@ public class Note implements Serializable {
 
     public void setNoteTime(OffsetDateTime noteTime) {
         NoteTime = noteTime;
+    }
+
+    public String getNotePriority() {
+        return NotePriority;
+    }
+
+    public void setNotePriority(String notePriority) {
+        NotePriority = notePriority;
     }
 }

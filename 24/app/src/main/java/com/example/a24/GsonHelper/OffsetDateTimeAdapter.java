@@ -10,7 +10,10 @@ import com.google.gson.stream.JsonToken;
 import com.google.gson.stream.JsonWriter;
 
 import java.io.IOException;
+import java.time.Instant;
 import java.time.OffsetDateTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
@@ -24,7 +27,9 @@ public class OffsetDateTimeAdapter extends TypeAdapter<OffsetDateTime> {
         if (value == null) {
             out.nullValue();
         } else {
-            out.value(formatter.format(value));
+            ZoneId utcZone = ZoneId.of("Europe/Moscow");
+            OffsetDateTime utcValue = value.withOffsetSameInstant(utcZone.getRules().getOffset(value.toInstant()));
+            out.value(formatter.format(utcValue));
         }
     }
 
@@ -35,7 +40,9 @@ public class OffsetDateTimeAdapter extends TypeAdapter<OffsetDateTime> {
             return null;
         } else {
             String stringValue = in.nextString();
-            return OffsetDateTime.parse(stringValue, formatter);
+            ZoneId utcZone = ZoneId.of("Europe/Moscow");
+            return OffsetDateTime.parse(stringValue, formatter)
+                    .withOffsetSameInstant(utcZone.getRules().getOffset(Instant.now()));
         }
     }
 }

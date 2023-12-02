@@ -28,4 +28,8 @@ public class NoteAPI {
         getNoteCall.enqueue(callback);
     }
 
+    public static void createNote(Note note, Callback<Note> callback) {
+        Call<Note> createNoteCall = noteServices.createNote(note);
+        createNoteCall.enqueue(callback);
+    }
 }

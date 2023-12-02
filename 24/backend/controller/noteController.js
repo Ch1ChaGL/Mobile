@@ -2,9 +2,11 @@ const { Note } = require("../models/models");
 
 class NoteController {
   async addNote(req, res, next) {
-    const { NoteTitle, NoteData, NoteTime } = req.body;
+    // Отбрасываем id из запроса, если он присутствует
+    const { NoteID, ...restOfData } = req.body;
 
-    const data = await Note.create(req.body);
+    console.log(restOfData);
+    const data = await Note.create(restOfData);
     res.json(data);
   }
 

@@ -66,4 +66,25 @@ public class NoteViewModel extends ViewModel {
         });
     }
 
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void createNote(Note note) {
+        NoteAPI.createNote(note, new Callback<Note>() {
+            @Override
+            public void onResponse(Call<Note> call, Response<Note> response) {
+                if (response.isSuccessful()) {
+                    // Обработка успешного создания заметки
+                    loadNotes();
+                    Log.d("NoteApp", "Note created successfully");
+                } else {
+                    Log.e("ApiCall", "Failed to create note");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Note> call, Throwable t) {
+                Log.e("ApiCall", "Failed to make API call", t);
+            }
+        });
+    }
 }
