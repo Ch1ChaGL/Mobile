@@ -109,4 +109,25 @@ public class NoteViewModel extends ViewModel {
         });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void deleteNote(int noteIdToDelete) {
+        NoteAPI.deleteNote(noteIdToDelete, new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                if (response.isSuccessful()) {
+                    // Обработка успешного удаления заметки
+                    loadNotes();  // Если вы хотите обновить заметки после успешного удаления
+                    Log.d("NoteApp", "Note deleted successfully");
+                } else {
+                    Log.e("ApiCall", "Failed to delete note");
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+                Log.e("ApiCall", "Failed to make API call", t);
+            }
+        });
+    }
+
 }

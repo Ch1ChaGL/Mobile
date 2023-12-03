@@ -95,9 +95,12 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
         datePicker.init(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
                 calendar.get(Calendar.DAY_OF_MONTH), null);
 
+        // Создание объекта OffsetDateTime
+        OffsetDateTime DateTime = OffsetDateTime.ofInstant(calendar.toInstant(), ZoneId.systemDefault());
+
         timePicker.setIs24HourView(true);
-        timePicker.setCurrentHour(calendar.get(Calendar.HOUR_OF_DAY));
-        timePicker.setCurrentMinute(calendar.get(Calendar.MINUTE));
+        timePicker.setHour(DateTime.getHour());
+        timePicker.setMinute(DateTime.getMinute());
 
         // Настройка кнопок в диалоге
         builder.setPositiveButton("OK", (dialog, which) -> {
@@ -123,8 +126,9 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
 
             // Создание объекта Calendar с выбранной датой и временем
             Calendar selectedCalendar = Calendar.getInstance();
-            Instant instant = selectedCalendar.toInstant();
             selectedCalendar.set(year, month, day, hour, minute);
+            Instant instant = selectedCalendar.toInstant();
+
 
             // Создание объекта OffsetDateTime
             OffsetDateTime offsetDateTime = OffsetDateTime.ofInstant(instant, ZoneId.systemDefault());
@@ -218,7 +222,7 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
 
 
         // Настройка кнопок в диалоге
-        builder.setPositiveButton("OK", (dialog, which) -> {
+        builder.setPositiveButton("UPDATE", (dialog, which) -> {
             // Получение данных из элементов управления
             String text = editText.getText().toString();
             String priority = spinnerPriority.getSelectedItem().toString();
@@ -241,8 +245,9 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
 
             // Создание объекта Calendar с выбранной датой и временем
             Calendar selectedCalendar = Calendar.getInstance();
-            Instant instant = selectedCalendar.toInstant();
             selectedCalendar.set(year, month, day, hour, minute);
+            Instant instant = selectedCalendar.toInstant();
+
 
             // Создание объекта OffsetDateTime
             OffsetDateTime offsetDateTime = OffsetDateTime.ofInstant(instant, ZoneId.systemDefault());
@@ -260,6 +265,12 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
 
         builder.setNegativeButton("Cancel", (dialog, which) -> {
             // Закрытие диалога при отмене
+            dialog.cancel();
+        });
+
+        // Добавление кнопки "Удалить"
+        builder.setNeutralButton("Delete", (dialog, which) -> {
+            noteViewModel.deleteNote(clickedNote.getNoteID());
             dialog.cancel();
         });
 

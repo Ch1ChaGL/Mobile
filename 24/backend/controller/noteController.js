@@ -11,9 +11,11 @@ class NoteController {
   }
 
   async getAllNote(req, res, next) {
-    const data = await Note.findAll();
+    const data = await Note.findAll({
+        order: [['NoteID', 'ASC']] // Сортировка по возрастанию по полю 'id'
+    });
     res.json(data);
-  }
+}
   async getNoteById(req, res, next) {
     const { id } = req.params;
     const data = await Note.findByPk(id);
@@ -29,15 +31,14 @@ class NoteController {
 
   async updateNote(req, res, next) {
     const { NoteID } = req.body;
-    const data = await Note.update(req.body, {
+    await Note.update(req.body, {
       where: {
         NoteID,
       },
     });
-    console.log('--------------------------------');
-    console.log(NoteID);
-    console.log(data);
-    console.log('--------------------------------');
+
+    const data = await Note.findByPk(NoteID);
+
     res.json(data);
   }
 }

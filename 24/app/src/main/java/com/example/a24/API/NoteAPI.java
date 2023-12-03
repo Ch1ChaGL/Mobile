@@ -37,4 +37,9 @@ public class NoteAPI {
         Call<Note> updateNoteCall = noteServices.updateNote(note);
         updateNoteCall.enqueue(callback);
     }
+
+    public static void deleteNote(int noteId, Callback<Void> callback) {
+        Call<Void> deleteNoteCall = noteServices.deleteNote(noteId);
+        deleteNoteCall.enqueue(callback);
+    }
 }
