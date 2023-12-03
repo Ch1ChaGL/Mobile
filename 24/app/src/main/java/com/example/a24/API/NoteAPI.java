@@ -32,4 +32,9 @@ public class NoteAPI {
         Call<Note> createNoteCall = noteServices.createNote(note);
         createNoteCall.enqueue(callback);
     }
+
+    public static void updateNote(Note note, Callback<Note> callback) {
+        Call<Note> updateNoteCall = noteServices.updateNote(note);
+        updateNoteCall.enqueue(callback);
+    }
 }

@@ -8,6 +8,7 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface NoteServices {
@@ -19,4 +20,7 @@ public interface NoteServices {
 
     @POST("api/note")
     Call<Note> createNote(@Body Note note);
+
+    @PUT("api/note")
+    Call<Note> updateNote(@Body Note note);
 }

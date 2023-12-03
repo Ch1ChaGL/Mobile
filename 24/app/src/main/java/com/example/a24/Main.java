@@ -201,16 +201,21 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
             spinnerPriority.setSelection(selectedPosition);
         }
 
-        //todo сделать отображение даты из бд
-
-        // Настройка DatePicker и TimePicker
-        Calendar calendar = Calendar.getInstance();
-        datePicker.init(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH),
-                calendar.get(Calendar.DAY_OF_MONTH), null);
-
         timePicker.setIs24HourView(true);
-        timePicker.setCurrentHour(calendar.get(Calendar.HOUR_OF_DAY));
-        timePicker.setCurrentMinute(calendar.get(Calendar.MINUTE));
+        // Получаем дату и время из clickedNote
+        OffsetDateTime offsetDateTimeClickedNote = clickedNote.getNoteTime();
+
+        // Установка значений DatePicker и TimePicker
+        datePicker.init(offsetDateTimeClickedNote.getYear(), offsetDateTimeClickedNote.getMonthValue() - 1, offsetDateTimeClickedNote.getDayOfMonth(), null);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            timePicker.setHour(offsetDateTimeClickedNote.getHour());
+            timePicker.setMinute(offsetDateTimeClickedNote.getMinute());
+        } else {
+            timePicker.setCurrentHour(offsetDateTimeClickedNote.getHour());
+            timePicker.setCurrentMinute(offsetDateTimeClickedNote.getMinute());
+        }
+
 
         // Настройка кнопок в диалоге
         builder.setPositiveButton("OK", (dialog, which) -> {
@@ -248,11 +253,9 @@ public class Main extends AppCompatActivity implements AdapterView.OnItemClickLi
             newNote.setNoteData(text);
             newNote.setNotePriority(priority);
             newNote.setNoteTime(offsetDateTime);
+            newNote.setNoteID(clickedNote.getNoteID());
 
-
-            noteViewModel.createNote(newNote);
-
-            //noteViewModel.loadNotes();
+            noteViewModel.updateNote(newNote);
         });
 
         builder.setNegativeButton("Cancel", (dialog, which) -> {

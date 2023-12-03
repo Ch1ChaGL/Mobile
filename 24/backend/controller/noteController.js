@@ -34,6 +34,10 @@ class NoteController {
         NoteID,
       },
     });
+    console.log('--------------------------------');
+    console.log(NoteID);
+    console.log(data);
+    console.log('--------------------------------');
     res.json(data);
   }
 }
